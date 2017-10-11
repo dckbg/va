@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-ENV VER=0.28.0 CERT_PEM=none KEY_PEM=none
+ENV VER=0.28.0 CERT_PEM=none KEY_PEM=none SERVER_JSON=none
 
 RUN \
     apk add --no-cache --virtual  curl \
@@ -17,7 +17,4 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh 
 ENTRYPOINT  /entrypoint.sh 
 
-EXPOSE 8080
-EXPOSE 8088
-
-
+EXPOSE 8080 8088
