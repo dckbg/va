@@ -11,10 +11,10 @@ RUN \
     && rm -rf gsnova_server_linux_amd64-v$VER.tar.bz2 \
     && chgrp -R 0 /gsnova \
     && chmod -R g+rwX /gsnova 
-    
-ADD server.json /gsnova/server.json    
+
+ADD server.json /gsnova/server.json
 ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh 
+RUN chmod +x /entrypoint.sh && chmod a+rwx /gsnova/server.json
 ENTRYPOINT  /entrypoint.sh 
 
 EXPOSE 8080 8088
